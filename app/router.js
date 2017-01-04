@@ -7,6 +7,13 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('homepage', function() {
+      this.route('detail',{path: '/:homepage_id'});
+      this.route('crud');
+      this.route('view2');
+  });
+  this.route('about');
+
 });
 
 export default Router;

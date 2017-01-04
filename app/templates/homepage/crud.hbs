@@ -1,0 +1,47 @@
+{{! app/templates/homepage/crud.hbs}}
+<div class="container" style="folat:left; width:100%;">  
+  <h4>Status</h4><hr width="100%">
+  {{input type="checkbox" checked=accepted_isCheck}} accepted &nbsp;
+  {{input type="checkbox" checked=analyzing_isCheck}} analyzing &nbsp;
+  {{input type="checkbox" checked=assigned_isCheck}} assigned &nbsp;
+  {{input type="checkbox" checked=closed_isCheck}} closed &nbsp;
+  {{input type="checkbox" checked=closing_isCheck}} closing &nbsp;
+  {{input type="checkbox" checked=confirming_isCheck}} confirming &nbsp;
+  {{input type="checkbox" checked=examining_isCheck}} examining &nbsp;
+  {{input type="checkbox" checked=new_isCheck}} new &nbsp;
+  {{input type="checkbox" checked=reopened_isCheck}} reopened &nbsp;
+  {{input type="checkbox" checked=reporting_isCheck}} reporting &nbsp;
+  {{input type="checkbox" checked=reproducing_isCheck}} reproducing &nbsp;
+   <!-- <br/><br/>
+    <div class="col-md-offset-5 col-sm-2">
+        <button class="btn btn-primary btn-lg btn-block" disabled={{isDisabled}} {{action 'seaRch' }}>Search</button>
+    </div> -->
+    <br/><br/>
+	<div class="col-md-10 col-xs-10">
+	<!-- <ul> 
+	    //输入的值会动态更新到controller
+	    输入分类：{{input value=category placeholder ='查询的分类'}}
+	</ul>   -->
+	<ul>
+          <table class="table table-bordered table-condensed" >
+              <thead>
+	        <tr><th>title</th><th>accepted</th><th>analyzing</th><th>assigned</th><th>closed</th><th>closing</th></tr>
+                
+              </thead>
+              <tbody>
+		<!-- 关键点：这里使用的是filteredArticles而不是从route获取的model -->
+		{{#each filteredArticles as |item|}}
+                  <!-- {{#link-to 'homepage.detail' item}} {{/link-to}}-->
+                        <tr><td>{{item.id}}</td>
+                            <td>{{item.accepted}}</td>
+                            <td>{{item.analyzing}}</td>
+                            <td>{{item.assigned}}</td>
+                            <td>{{item.closed}}</td>
+                            <td>{{item.closing}}</td></tr>
+		{{/each}}
+	     </tbody>
+          </table>
+	</ul>
+	</div>
+    {{outlet}}
+</div>  

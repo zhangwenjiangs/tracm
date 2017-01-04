@@ -1,0 +1,31 @@
+{{! app/templates/index.hbs}}
+<div class="jumbotron text-center">  
+    <h1>Trac Manager</h1>
+    <br/><br/>
+
+    <div class="form-horizontal form-group form-group-lg row">
+        <div class="col-md-offset-4 col-sm-4">
+          <-! <input type="email" class="form-control" placeholder="Please type your name." autofocus="autofocus"/> -->
+          {{input type="name" value=userName class="form-control" placeholder="Please type your username." autofocus="autofocus"}}
+        </div>
+    </div>
+    <div class="form-horizontal form-group form-group-lg row">
+        <div class="col-md-offset-4 col-sm-4">
+          <-! <input type="email" class="form-control" placeholder="Please type your pwd." autofocus="autofocus"/> -->
+          {{input type="password" value=passWord class="form-control" placeholder="Please type your password." autofocus="autofocus"}}
+        </div>
+    </div>
+    <div class="col-md-offset-5 col-sm-2">
+        <button class="btn btn-primary btn-lg btn-block" disabled={{isDisabled}} {{action 'logIn'}}>Login</button>
+    </div>
+    <br/><br/>
+    <br/><br/>
+
+    {{#if responseMessage_Su}}
+     <div class="alert alert-success">{{responseMessage_Su}}</div>
+    {{else if responseMessage_Er}}
+     <div class="alert alert-warning">{{responseMessage_Er}}</div>
+    {{/if}}
+    <br/><br/>
+</div>  
+{{outlet}}

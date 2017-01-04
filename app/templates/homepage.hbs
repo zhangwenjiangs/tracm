@@ -1,0 +1,13 @@
+<div id="main" style="width:100%;">
+<div class="well" style="float:left; width:120px; height:150%;">  
+    <ul class="nav">
+      {{#link-to 'homepage.crud' tagName="li"}}<a href="">crud</a>{{/link-to}}
+      {{#link-to 'homepage.view2' tagName="li"}}<a href="">view2</a>{{/link-to}}
+    </ul>
+<br/>
+</div>  
+<div class="" style="float:left ; width:1000px; height:100%;">  
+<!-- 子模板crud.hbs、view2.hbs会渲染到outlet上 -->  
+{{outlet}}
+</div>
+</div>
