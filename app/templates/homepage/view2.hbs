@@ -1,5 +1,29 @@
 {{! app/templates/homepage/view2.hbs }}
-<div class="container">
-<h1>About View2</h1> 
-</div>
+<div class="container" style="folat:left; width:100%;">  
+  <h4>Status</h4><hr width="100%">
+  {{input type="checkbox" checked=accepted_isCheck}} accepted &nbsp;
+  {{input type="checkbox" checked=analyzing_isCheck}} analyzing &nbsp;
+  {{input type="checkbox" checked=assigned_isCheck}} assigned &nbsp;
+  {{input type="checkbox" checked=closed_isCheck}} closed &nbsp;
+  {{input type="checkbox" checked=closing_isCheck}} closing &nbsp;
+  {{input type="checkbox" checked=confirming_isCheck}} confirming &nbsp;
+  {{input type="checkbox" checked=examining_isCheck}} examining &nbsp;
+  {{input type="checkbox" checked=new_isCheck}} new &nbsp;
+  {{input type="checkbox" checked=reopened_isCheck}} reopened &nbsp;
+  {{input type="checkbox" checked=reporting_isCheck}} reporting &nbsp;
+  {{input type="checkbox" checked=reproducing_isCheck}} reproducing &nbsp;
+    <br/><br/>
+    <div class="col-md-offset-5 col-sm-2">
+        <button class="btn btn-primary btn-lg btn-block" disabled={{isDisabled}} {{action 'seaRch' }}>Search</button>
+    </div>
+     <div style="margin-top: 70px;"> 
+         <ul>
+            {{#each model as |item|}}
+                <li>
+                {{#link-to 'homepage.detail' item}} {{item.title}} {{/link-to}}
+                </li>
+            {{/each}}
+         </ul>
+    </div>
 {{outlet}}
+</div>

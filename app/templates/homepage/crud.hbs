@@ -17,31 +17,30 @@
         <button class="btn btn-primary btn-lg btn-block" disabled={{isDisabled}} {{action 'seaRch' }}>Search</button>
     </div> -->
     <br/><br/>
-	<div class="col-md-10 col-xs-10">
-	<!-- <ul> 
-	    //输入的值会动态更新到controller
-	    输入分类：{{input value=category placeholder ='查询的分类'}}
-	</ul>   -->
-	<ul>
-          <table class="table table-bordered table-condensed" >
-              <thead>
-	        <tr><th>title</th><th>accepted</th><th>analyzing</th><th>assigned</th><th>closed</th><th>closing</th></tr>
-                
-              </thead>
-              <tbody>
-		<!-- 关键点：这里使用的是filteredArticles而不是从route获取的model -->
-		{{#each filteredArticles as |item|}}
-                  <!-- {{#link-to 'homepage.detail' item}} {{/link-to}}-->
-                        <tr><td>{{item.id}}</td>
-                            <td>{{item.accepted}}</td>
-                            <td>{{item.analyzing}}</td>
-                            <td>{{item.assigned}}</td>
-                            <td>{{item.closed}}</td>
-                            <td>{{item.closing}}</td></tr>
-		{{/each}}
-	     </tbody>
+    <div class="col-md-10 col-xs-10">
+    <!-- <ul> 
+        //输入的值会动态更新到controller
+        输入分类：{{input value=category placeholder ='查询的分类'}}
+    </ul>   -->
+    <ul>
+      <table class="table table-bordered table-condensed" >
+          <thead>
+            <tr><th>title</th><th>accepted</th><th>analyzing</th><th>assigned</th><th>closed</th><th>closing</th></tr>
+          </thead>
+          <tbody>
+            <!-- 关键点：这里使用的是filteredArticles而不是从route获取的model -->
+            {{#each filteredArticles as |item|}}
+                <!-- {{#link-to 'homepage.detail' item}} {{/link-to}}-->
+                <tr><td>{{item.id}}</td>
+                <td>{{item.accepted}}</td>
+                <td>{{item.analyzing}}</td>
+                <td>{{item.assigned}}</td>
+                <td>{{item.closed}}</td>
+                <td>{{item.closing}}</td></tr>
+            {{/each}}
+          </tbody>
           </table>
-	</ul>
-	</div>
-    {{outlet}}
-</div>  
+    </ul>
+    </div>
+</div>
+{{outlet}}
