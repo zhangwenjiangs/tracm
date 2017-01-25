@@ -15,13 +15,14 @@ export default Ember.Service.extend({
             url: '/homepage',
             data: { username: username, password: password }
         }).then((res) => {
-            //console.log(username,password);
             // 设置返回的access_token到service类的属性中
             this.set('accessToken', res.access_token);
+            console.log('登录成功');
+            //console.log(res);
         }, (err) => {
-        	//this.set('accessToken', null);
-        	//console.log(username,password,"bbb");
             //登录失败
+            console.log('登录失败');
+            //console.log(err);
         });
     },
     invalidate() {

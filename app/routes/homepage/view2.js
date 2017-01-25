@@ -10,7 +10,7 @@ export default Ember.Route.extend({
         return Ember.$.ajax({
                 type: 'get',
                 url: "http://zhangwj:zhangwj123@172.28.25.81/trac/tracjobcenterm/rpc",
-                dataType: 'jsonp',
+                dataType: 'json',
                 //jsonpCallback:'zwj',
                 contentType: 'application/json',
                 data: {"params": ["status!=closed"], "method": "ticket.query" , "id": 123},
@@ -19,6 +19,7 @@ export default Ember.Route.extend({
                     console.log( data );
                 },
                 error:function(xhr,textStatus,errorThrown){
+
                    console.log( '22222222' );
                    console.log( 'status', xhr.status);
                    console.log( 'readyState', xhr.readyState);

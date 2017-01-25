@@ -29,21 +29,26 @@ module.exports = function(app) {
 
 
   // 拦截 /api/codes 请求
-  app.get('/homepage*', function(req, res) {
+  app.get('/homepage/crud', function(req, res) {
       //获取数据之前先校验请求者是否有权访问资源
       //  做一个非常简单的判断，如果请求的头信息不等于BLOG.DDLISTING.COM则认为无权限
       if (req.headers['authorization'] !== 'BLOG.DDLISTING.COM') {
           return res.status(403).send('您无权访问此资源！')
       }
       // 直接返回正确状态和测试数据
-      //this.transitionToRoute('homepage');
       
-      //return res.status(200).send({
-      //    codes: [
-      //        { id:1, description: '为了测试创建一个简单的后端服务程序，使用的是Node，然后写死一些测试数据。就没必要动牛刀，创建一个数据库了！' },
-      //        { id:2, description: '本篇博文将为你介绍如何使用service实现权限控制，我会创建一个简单的登录示例加以说明。如有不妥欢迎留言指正。' }
-       //   ]
-      //});
+      return res.status(200).send({
+          crud: [
+            { id: 1, title: '111', accepted: true,analyzing: true, assigned: true, closed: false, closing:false},
+            { id: 2, title: '222', accepted: true,analyzing: false, assigned: false, closed: true, closing:false},
+            { id: 3, title: '333', accepted: true ,analyzing: true, assigned: false, closed: false, closing:true},
+            { id: 4, title: '444', accepted: false ,analyzing: true, assigned: false, closed: true, closing:false},
+            { id: 5, title: '555', accepted: true ,analyzing: true, assigned: false, closed: false, closing:true},
+            { id: 6, title: '666', accepted: false ,analyzing: false, assigned: true, closed: false, closing:false},
+            { id: 7, title: '777', accepted: true ,analyzing: true, assigned: false, closed: false, closing:false},
+            { id: 8, title: '888', accepted: true ,analyzing: true, assigned: false, closed: true, closing:false}
+          ]
+      });
   });
   // 登录
   app.post('/homepage*', function(req, res) {
